@@ -1,0 +1,21 @@
+application: seat-map
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /app
+  static_dir: app
+- url: /admin/.*
+  script: main.app
+  login: admin
+- url: /.*
+  script: main.app
+
+builtins:
+- remote_api: on
+
+libraries:
+- name: jinja2
+  version: latest

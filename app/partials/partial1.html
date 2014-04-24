@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="place-panel">
+    <a href="{{ place.data.website }}"><h4> {{ place.data.name }}</h4></a>
+    {{ place.data.formatted_address }}
+  </div>
+  <div id="frame" style="float:left">
+    <canvas grid id="grid" width='375' height='375'>
+    </canvas>
+    <cell ng-style='table.style' name='{{table.name}}' ng-class='table.class' ng-repeat='table in tables.data'
+          ng-click="selectTable(table)">
+    </cell>
+  </div>
+  <div id="rightPane" style="margin-left: 375px;position: relative">
+    <div class="zoom-panel">
+      <div class="btn-group-vertical">
+        <button zoom="in" type="button" value="zoom-in" class="btn btn-default" id="zoom-in"
+                rel="tooltip" title="zoom in">
+          <img src="app/img/zoomin.png" style="width:20px;height: 20px;"/>
+        </button>
+        <button zoom="out" type="button" value="zoom-out" class="btn btn-default" id="zoom-out"
+                zoom-type="out" rel="tooltip" title="zoom out">
+          <img src="app/img/zoomout.png" style="width:20px;height: 20px;"/>
+        </button>
+      </div>
+    </div>
+    <p/>
+    <div id="openCellPanel" class="cell-panel"
+         style="height:35px; width:46px;border-top-right-radius:5px;border-bottom-right-radius:5px;cursor: pointer;display: none">
+      <span class="glyphicon glyphicon-chevron-right" style="margin-top: 8px;margin-left: 10px;"></span>
+    </div>
+    <cell-panel>
+      <div id="cellPanel" class="cell-panel">
+        <button type="button" id="cellPanelCloseBtn" class="close pull-right" style="margin-right: 5px"><b
+            style="font-size:x-large">&times;</b></button>
+        <div style="height: 30px">
+          <h3>{{table.name}}</h3>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+          <label id="square-btn" class="btn btn-default" ng-click="saveShape(table,'square')">
+            <input type="radio" name="shape"  value="square" id="square"> <img src="app/img/square.png"
+                                                                                style="width:20px;height: 20px;"/>
+          </label>
+          <label id="circle-btn" class="btn btn-default" ng-click="saveShape(table,'circle')">
+            <input type="radio" name="shape" value="circle" id="circle"> <img src="app/img/circle.png"
+                                                                                style="width:20px;height: 20px;"/>
+          </label>
+        </div>
+        <p/>
+        <input id="textQty" class="form-control" type="number" required ng-pattern="/\d+/" step="1" min="0"
+               ng-model="table.qty" ng-change="saveTableQty(table)"
+               style="width: 60px;font-weight: bolder">
+        <p/>
+
+        <div style="min-width: 200px">
+          <button class="btn btn-primary" ng-click="saveTablesToDb()"><b>Save</b></button>
+          <button class="btn btn-danger" ng-click="deleteTable(table)"><b>Delete</b></button>
+        </div>
+        <div ng-class="messageStyle" style="margin-top: 5px;margin-left: 1px;margin-right: 5px">{{ message }}</div>
+      </div>
+    </cell-panel>
+
+  </div>
+</div>

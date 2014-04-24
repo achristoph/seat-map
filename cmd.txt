@@ -1,0 +1,2 @@
+coffee -o "C:\Dropbox\web\seat_map" -wc "C:\Dropbox\web\seat_map\cf"
+

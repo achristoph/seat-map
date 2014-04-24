@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div id="cellModal" class="modal hide fade" tabindex="-1" role="dialog" data-backdrop="false"
+     style="width:200px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="cellModalLabel">{{seat.name}}</h3>
+  </div>
+  <div class="modal-body">
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" value="square" class="btn" id="square"
+              rel="tooltip" title="square">
+        <img src="app/img/square.png" style="width:20px;height: 20px;"/>
+      </button>
+      <button type="button" value="circle" class="btn" id="circle"
+              rel="tooltip" title="circle">
+        <img src="app/img/circle.png" style="width:20px;height: 20px;"/>
+      </button>
+    </div>
+    <p/>
+    <input id="textQty" type="number" required ng-pattern="/\d+/" step="1" min="0" ng-model="seat.qty"
+           style="width: 30px">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" ng-click="deleteCell(seat)">Delete</button>
+  </div>
+</div>

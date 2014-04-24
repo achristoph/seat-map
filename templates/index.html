@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Seat Map</title>
+  <link rel="stylesheet" href="app/css/app.css"/>
+  <link rel="stylesheet" href="app/css/bootstrap.css"/>
+  <link rel="stylesheet" href="app/css/bootstrap-theme.css"/>
+  <link rel="stylesheet" href="app/css/jquery-ui.css"/>
+</head>
+
+<body>
+
+<div id="navbar" class="navbar navbar-default" role="navigation" style="margin-bottom: 5px" ng-controller="NavCtrl">
+  <div class="navbar-header">
+    <span class="navbar-brand" href="#"><img src="/app/img/logo.png"></span>
+  </div>
+  <div class="input-group" style="margin-top: 10px;width:350px">
+        <span class="input-group-btn">
+          <button type="button" value="Locate me" class="btn btn-default active" id="loc-me-btn"
+                  rel="tooltip" title="Near my current location"
+                  data-placement="right" data-toggle="button">
+            <img style="height:18px" src="app/img/locate.png"/>
+          </button>
+        </span>
+    <input search-place id="search-place-text" place="place" type="text" class="form-control col-xs-4"
+           placeholder="Select a place.."
+           rel="popover" data-content="Select a place from the list" data-placement="bottom">
+  </div>
+</div>
+
+
+<div ng-view>
+
+</div>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script src="app/lib/jquery.js"></script>
+<script src="app/lib/jquery-ui.js"></script>
+<script src="app/lib/angular/angular.js"></script>
+<script src="app/lib/angular/angular-route.js"></script>
+<script src="app/js/app.js"></script>
+<script src="app/js/services.js"></script>
+<script src="app/js/controllers.js"></script>
+<script src="app/js/filters.js"></script>
+<script src="app/js/directives.js"></script>
+<script src="app/lib/bootstrap.js"></script>
+<script src="app/lib/underscore-min.js"></script>
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+-->
+
+</body>
+</html>
